@@ -8,6 +8,7 @@
 
 Create a new Environment 
 '''
-conda create -p venv python==3.7 -y
+conda create -n mlenv python=3.10 -y
 
 '''
+then  do "pip install -r requirements.txt"
