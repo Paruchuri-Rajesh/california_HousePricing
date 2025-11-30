@@ -1,3 +1,81 @@
-<h1>
-    Welcome to California House Pricing Prediction App
-</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>House Price Prediction</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            padding: 30px;
+        }
+        .container {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            width: 400px;
+            margin: auto;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        input {
+            width: 100%;
+            padding: 8px;
+            margin: 8px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+    </style>
+
+</head>
+<body>
+
+    <div class="container">
+        <h2>California House Price Prediction</h2>
+        <form action="{{url_for('predict')}}" method="POST">
+
+            <label>Median Income (MedInc)</label>
+            <input type="number" step="any" name="MedInc" required>
+
+            <label>House Age</label>
+            <input type="number" step="any" name="HouseAge" required>
+
+            <label>Average Rooms</label>
+            <input type="number" step="any" name="AveRooms" required>
+
+            <label>Average Bedrooms</label>
+            <input type="number" step="any" name="AveBedrms" required>
+
+            <label>Population</label>
+            <input type="number" step="any" name="Population" required>
+
+            <label>Average Occupancy (AveOccup)</label>
+            <input type="number" step="any" name="AveOccup" required>
+
+            <label>Latitude</label>
+            <input type="number" step="any" name="Latitude" required>
+
+            <label>Longitude</label>
+            <input type="number" step="any" name="Longitude" required>
+
+            <button type="submit">Predict Price</button>
+
+        </form>
+    </div>
+    {{prediction_text | safe}}
+</body>
+</html>
